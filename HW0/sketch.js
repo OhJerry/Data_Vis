@@ -2,6 +2,8 @@ function setup() {
 	createCanvas(800,600); // make an HTML canvas element width x height pixels
 }
 
+var last = 59;
+
 function draw() {
 	let circ = 3.14 * 2;
 	let start = 3/4 * circ
@@ -9,7 +11,9 @@ function draw() {
 	let m = minute();
 	let s = second();
 	if (h >= 12){h=h-12;}
-
+	if (s != last && s == 0){console.log(m);}
+	last = s;
+	
 	background(255);
 	noFill();
 
@@ -24,4 +28,5 @@ function draw() {
 	strokeWeight(2);
 	stroke(150);
 	arc(150, 155, 50, 50, start, start + s * circ / 60);
+
 }
